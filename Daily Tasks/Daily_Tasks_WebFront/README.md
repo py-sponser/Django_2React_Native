@@ -7,6 +7,7 @@
 # Running the Application:
 - Run your android emulator
 - Change directory to Daily_Tasks_WebFront
+- npm install
 - npm start
 
 

@@ -10,6 +10,7 @@
 # Running the Application:
 - Run your android emulator
 - Change directory to Daily_Tasks_Android
+- npm install
 - npm start
 - A webpage will be loaded, you can find a button on your left side to run android simulator.
 - Click on the button, expo will be installed on the android the emulator and run the app.
