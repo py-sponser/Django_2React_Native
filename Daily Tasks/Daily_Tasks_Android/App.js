@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity, Alert} from 'react-native';
+import {StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
 import {Platform} from "react-native-web";
 import TaskList from "./Components/TaskList";
 import TaskForm from "./Components/TaskForm";
@@ -41,28 +41,40 @@ export default function App() {
 
   return (
       <View style={styles.container}>
-        <TaskAppHeader />
-        <TaskForm
-            newTask={newTask}
-            setNewTask={setNewTask}
-            isEditing={isEditing}
-            setIsEditing={setIsEditing}
-            taskToEdit={taskToEdit}
-            setTaskToEdit={setTasktoEdit}
-            setTasks={setTasks}
-            tasks={tasks}
-        />
-        <TaskList
-            tasks={tasks}
-            setTasks={setTasks}
-            isEditing={isEditing}
-            setIsEditing={setIsEditing}
-            taskToEdit={taskToEdit}
-            setTaskToEdit={setTasktoEdit}
-            completedTasks={completedTasks}
-            setCompletedTasks={setCompletedTasks}
-        />
-      </View>
+          <TaskAppHeader />
+          {
+              isLoading ? (
+                  <ActivityIndicator style={styles.spinner_location} size="large" color="#007BFF" />
+                  )
+                  :
+                  (
+                      <>
+                        <TaskForm
+                            newTask={newTask}
+                            setNewTask={setNewTask}
+                            isEditing={isEditing}
+                            setIsEditing={setIsEditing}
+                            taskToEdit={taskToEdit}
+                            setTaskToEdit={setTasktoEdit}
+                            setTasks={setTasks}
+                            tasks={tasks}
+                        />
+                        <TaskList
+                            tasks={tasks}
+                            setTasks={setTasks}
+                            isEditing={isEditing}
+                            setIsEditing={setIsEditing}
+                            taskToEdit={taskToEdit}
+                            setTaskToEdit={setTasktoEdit}
+                            completedTasks={completedTasks}
+                            setCompletedTasks={setCompletedTasks}
+                        />
+                      </>
+
+                  )
+          }
+          </View>
+
   );
 }
 
@@ -81,13 +93,7 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: "pink",
   },
-  // inputText:{
-  //   borderWidth: 1,
-  //   borderColor: "pink",
-  //   color: "pink",
-  //   fontWeight: "bold",
-  //   padding: 8,
-  //   margin: 10,
-  //   width: 250,
-  // }
+    spinner_location: {
+      margin: 200,
+    }
 });

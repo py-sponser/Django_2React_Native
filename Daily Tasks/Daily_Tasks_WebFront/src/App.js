@@ -40,7 +40,11 @@ function App() {
   return (
     <div className="container">
         {
-            isLoading ? <div>Loading ...</div> : (
+            isLoading ? (
+                <div className="spinner-border text-primary spinner-location" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            ) : (
                 <>
                     <div className="header-wrapper">
                         <h1>Daily Tasks</h1>
