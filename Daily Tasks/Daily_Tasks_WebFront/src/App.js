@@ -42,7 +42,7 @@ function App() {
         {
             isLoading ? (
                 <div className="spinner-border text-primary spinner-location" role="status">
-                    <span className="sr-only">Loading...</span>
+                    <span className="sr-only"></span>
                 </div>
             ) : (
                 <>
